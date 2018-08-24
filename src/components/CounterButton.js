@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 
-class CounterButton extends Component {
+class CounterButton extends PureComponent {
     constructor() {
         super();
         this.state = {
@@ -8,12 +8,13 @@ class CounterButton extends Component {
         }
     }
 
-    shouldComponentUpdate(nextProps, nextState) {
-        if (this.state.count !== nextState.count) {
-            return true
-        }
-        return false
-    }
+    // Don't use with PureComponent
+    // shouldComponentUpdate(nextProps, nextState) {
+    //     if (this.state.count !== nextState.count) {
+    //         return true
+    //     }
+    //     return false
+    // }
 
     updateCount = () => {
         this.setState(state => {
