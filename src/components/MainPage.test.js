@@ -38,5 +38,21 @@ describe('MainPaege component tests', () => {
                 email: 'john@gmail.com'
             }
         ]);
+    });
+
+    it('filters robots correctly 2', () => {
+        const mockProps3 = {
+            onRequestRobots: jest.fn(),
+            robots: [{
+                id: 3,
+                name: 'John',
+                email: 'john@gmail.com'
+            }],
+            searchField: 'a',
+            isPending: false
+        };
+        const filteredRobots = [];
+        const wrapper3 =  shallow(<MainPage { ...mockProps3 }/>);
+        expect(wrapper3.instance().filterRobots()).toEqual(filteredRobots);
     })
 });
